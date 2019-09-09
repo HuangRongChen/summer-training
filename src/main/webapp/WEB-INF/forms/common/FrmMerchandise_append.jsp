@@ -3,33 +3,29 @@
 
 <html>
 <head>
-    <title>添加范例</title>
+    <title>Title</title>
 </head>
 <body>
 
 <%@ include file="head.jspf" %>
 
-<div><a href="FrmExample">返回</a></div>
-
-<form method="post" action="FrmExample.append">
+<div><a href="FrmMerchandise">返回</a></div>
+<form method="post" action="FrmMerchandise.append">
     <div>
-        <label>学号</label>
+        <label>编号</label>
         <input id="code" name="code" value="${param.code}"/>
     </div>
     <div>
-        <label>姓名</label>
+        <label>名称</label>
         <input id="name" name="name" value="${param.name}"/>
     </div>
     <div>
-        <label>性别</label>
-        <select id="sex" name="sex">
-            <option value="0">男</option>
-            <option value="1">女</option>
-        </select>
+        <label>价格</label>
+        <input id="price" name="name" value="${param.price}"/>
     </div>
     <div>
-        <label>年龄</label>
-        <input id="age" name="age" value="${param.age}"/>
+        <label>库存</label>
+        <input id="age" name="age" value="${param.number}"/>
     </div>
     <button name="submit" value="append">保存</button>
 </form>

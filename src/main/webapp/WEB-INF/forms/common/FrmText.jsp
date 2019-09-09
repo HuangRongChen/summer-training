@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>列表</title>
     <style>
         header {
-            background-color:gray;
-            color:white;
+            background-color: #808080;
+            color: #ffffff;
             text-align:center;
             padding:5px;
         }
@@ -24,8 +25,8 @@
             padding:10px;
         }
         footer {
-            background-color:black;
-            color:white;
+            background-color: #000000;
+            color: #ffffff;
             clear:both;
             text-align:center;
             padding:5px;

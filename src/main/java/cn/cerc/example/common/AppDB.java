@@ -8,4 +8,5 @@ public class AppDB {
     public static final String Table_Example = "s_example";
     public static final String Table_User = "User";
 
+    public static final String Table_PartInfo ="s_partinfo";
 }
