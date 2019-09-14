@@ -23,4 +23,7 @@
     <bean id="SvrPartInfo.search" class="cn.cerc.example.service.SvrPartInfo" scope="prototype">
         <property name="funcCode" value="search"></property>
     </bean>
+    <bean id="SvrPartInfo.append" class="cn.cerc.example.service.SvrPartInfo" scope="prototype">
+        <property name="funcCode" value="append"></property>
+    </bean>
 </beans>

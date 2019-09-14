@@ -38,8 +38,36 @@ public class FrmPartInfo extends AbstractForm {
     }
 
     public IPage append() {
-        JspPage jspPage = new JspPage(this,"common/FrmPartInfo_append.jsp");
-        return jspPage;
+        JspPage jspPage = new JspPage(this, "common/FrmPartInfo_append.jsp");
+        String submit = getRequest().getParameter("submit");
+        log.info("submit {}", submit);
+        if (submit == null || "".equals(submit)) {
+            return jspPage;
+        }
+
+        String code = getRequest().getParameter("code");
+        String desc = getRequest().getParameter("desc");
+        String spec = getRequest().getParameter("spec");
+        String unit = getRequest().getParameter("unit");
+        String remark = getRequest().getParameter("remark");
+
+        LocalService svr = new LocalService(this, "SvrPartInfo.append");
+        Record headIn = svr.getDataIn().getHead();
+        headIn.setField("code_", code);
+        headIn.setField("desc_", desc);
+        headIn.setField("spec_", spec);
+        headIn.setField("unit_", unit);
+        headIn.setField("remark_", remark);
+        if (!svr.exec()) {
+            jspPage.setMessage(svr.getMessage());
+            return jspPage;
+        }
+
+        UrlRecord url = new UrlRecord();
+        url.setSite("FrmPartInfo");
+        url.putParam("message", "商品添加成功");
+        log.info(url.getUrl());
+        return new RedirectPage(this, url.getUrl());
     }
 
     public IPage append_old() {

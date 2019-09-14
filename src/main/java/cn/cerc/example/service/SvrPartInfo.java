@@ -21,4 +21,8 @@ public class SvrPartInfo extends CustomService {
         return true;
     }
 
+    public boolean append() {
+        return true;
+    }
+
 }

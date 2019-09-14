@@ -9,16 +9,32 @@
 
 <%@ include file="head.jspf" %>
 
-<form method="post" action="FrmPartInfo">
+<div>
+    <a href="FrmPartInfo">返回</a>
+</div>
+
+<form method="post" action="FrmPartInfo.append">
     <div>
         <label for="code">编号</label>
         <input id="code" name="code" value="${param.code}"/>
     </div>
     <div>
-        <label for="searchText">条件</label>
-        <input id="searchText" name="searchText" value="${param.searchText}"/>
+        <label for="desc">名称</label>
+        <input id="desc" name="desc" value="${param.desc}"/>
     </div>
-    <button>保存</button>
+    <div>
+        <label for="spec">规格</label>
+        <input id="spec" name="spec" value="${param.spec}"/>
+    </div>
+    <div>
+        <label for="unit">单位</label>
+        <input id="unit" name="unit" value="${param.unit}"/>
+    </div>
+    <div>
+        <label for="remark">备注</label>
+        <input id="remark" name="remark" value="${param.remark}"/>
+    </div>
+    <button id="submit" name="submit" value="append">保存</button>
 </form>
 
 </body>
