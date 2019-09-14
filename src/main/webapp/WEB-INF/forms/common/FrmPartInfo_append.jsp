@@ -3,31 +3,23 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>商品信息</title>
 </head>
 <body>
 
 <%@ include file="head.jspf" %>
 
-<div><a href="FrmPartInfo">返回</a></div>
-<form method="post" action="FrmPartInfo.append">
+<form method="post" action="FrmPartInfo">
     <div>
-        <label>编号</label>
+        <label for="code">编号</label>
         <input id="code" name="code" value="${param.code}"/>
     </div>
     <div>
-        <label>名称</label>
-        <input id="name" name="name" value="${param.name}"/>
+        <label for="searchText">条件</label>
+        <input id="searchText" name="searchText" value="${param.searchText}"/>
     </div>
-    <div>
-        <label>价格</label>
-        <input id="price" name="name" value="${param.price}"/>
-    </div>
-    <div>
-        <label>库存</label>
-        <input id="age" name="age" value="${param.number}"/>
-    </div>
-    <button name="submit" value="append">保存</button>
+    <button>保存</button>
 </form>
+
 </body>
 </html>

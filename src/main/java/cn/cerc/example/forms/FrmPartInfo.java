@@ -38,6 +38,11 @@ public class FrmPartInfo extends AbstractForm {
     }
 
     public IPage append() {
+        JspPage jspPage = new JspPage(this,"common/FrmPartInfo_append.jsp");
+        return jspPage;
+    }
+
+    public IPage append_old() {
         JspPage jspPage = new JspPage(this, "common/FrmPartInfo_append.jsp");
         String submit = getRequest().getParameter("submit");
         if (submit == null || "".equals(submit)) {
