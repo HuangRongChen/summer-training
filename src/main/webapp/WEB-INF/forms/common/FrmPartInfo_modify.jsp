@@ -8,9 +8,9 @@
 <body>
 
 <%@ include file="head.jspf" %>
-<div><a href="FrmMerchandise">返回</a></div>
+<div><a href="FrmPartInfo">返回</a></div>
 
-<form method="post" action="FrmMerchandise.modify">
+<form method="post" action="FrmPartInfo.modify">
     <input type="hidden" id="code" name="code" value="${record.items.code_}">
     <div>
         <label>名称</label>

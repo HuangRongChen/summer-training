@@ -9,7 +9,8 @@
 <div>请根据需求文档，自行建立相关菜单文件</div>
 <div>
     <a href="FrmExample">范例参考</a>
-
+    <br>
+    <a href="FrmPartInfo">商品管理</a>
 </div>
 </body>
 </html>

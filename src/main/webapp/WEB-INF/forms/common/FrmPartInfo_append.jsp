@@ -9,8 +9,8 @@
 
 <%@ include file="head.jspf" %>
 
-<div><a href="FrmMerchandise">返回</a></div>
-<form method="post" action="FrmMerchandise.append">
+<div><a href="FrmPartInfo">返回</a></div>
+<form method="post" action="FrmPartInfo.append">
     <div>
         <label>编号</label>
         <input id="code" name="code" value="${param.code}"/>

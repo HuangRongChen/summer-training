@@ -11,18 +11,18 @@ import cn.cerc.jpage.core.UrlRecord;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class FrmMerchandise extends AbstractForm {
+public class FrmPartInfo extends AbstractForm {
 
     @Override
     public IPage execute() {
-        JspPage jspPage = new JspPage(this, "common/FrmMerchandise.jsp");
+        JspPage jspPage = new JspPage(this, "common/FrmPartInfo.jsp");
 
         String message = getRequest().getParameter("message");
         if (message != null) {
             jspPage.setMessage(message);
         }
 
-        LocalService svr = new LocalService(this, "SvrMerchandise.search");
+        LocalService svr = new LocalService(this, "SvrPartInfo.search");
         Record headIn = svr.getDataIn().getHead();
         headIn.setField("code_", getRequest().getParameter("code"));
         headIn.setField("searchText_", getRequest().getParameter("searchText"));
@@ -38,7 +38,7 @@ public class FrmMerchandise extends AbstractForm {
     }
 
     public IPage append() {
-        JspPage jspPage = new JspPage(this, "common/FrmMerchandise_append.jsp");
+        JspPage jspPage = new JspPage(this, "common/FrmPartInfo_append.jsp");
         String submit = getRequest().getParameter("submit");
         if (submit == null || "".equals(submit)) {
             return jspPage;
@@ -49,7 +49,7 @@ public class FrmMerchandise extends AbstractForm {
         String price = getRequest().getParameter("price");
         String number = getRequest().getParameter("number");
 
-        LocalService svr = new LocalService(this, "SvrMerchandise.append");
+        LocalService svr = new LocalService(this, "SvrPartInfo.append");
         Record headIn = svr.getDataIn().getHead();
         headIn.setField("code_", code);
         headIn.setField("name_", name);
@@ -61,13 +61,13 @@ public class FrmMerchandise extends AbstractForm {
         }
 
         UrlRecord url = new UrlRecord();
-        url.setSite("FrmMerchandise");
+        url.setSite("FrmPartInfo");
         url.putParam("message", "添加成功");
         return new RedirectPage(this, url.getUrl());
     }
 
     public IPage modify() {
-        JspPage jspPage = new JspPage(this, "common/FrmMerchandise_modify.jsp");
+        JspPage jspPage = new JspPage(this, "common/FrmPartInfo_modify.jsp");
         String code = getRequest().getParameter("code");
         if (code == null || "".equals(code)) {
             jspPage.setMessage("code 不允许为空");
@@ -79,7 +79,7 @@ public class FrmMerchandise extends AbstractForm {
             jspPage.setMessage(message);
         }
 
-        LocalService svr1 = new LocalService(this, "SvrMerchandise.download");
+        LocalService svr1 = new LocalService(this, "SvrPartInfo.download");
         Record headIn1 = svr1.getDataIn().getHead();
         headIn1.setField("code_", code);
         if (!svr1.exec()) {
@@ -96,7 +96,7 @@ public class FrmMerchandise extends AbstractForm {
                 jspPage.setMessage("price 代码不允许为空");
                 return jspPage;
             }
-            LocalService svr2 = new LocalService(this, "SvrMerchandise.modify");
+            LocalService svr2 = new LocalService(this, "SvrPartInfo.modify");
             Record headIn2 = svr2.getDataIn().getHead();
             headIn2.setField("code_", code);
             headIn2.setField("price_", price);
@@ -106,7 +106,7 @@ public class FrmMerchandise extends AbstractForm {
                 return jspPage;
             }
             UrlRecord url = new UrlRecord();
-            url.setSite("FrmMerchandise.modify");
+            url.setSite("FrmPartInfo.modify");
             url.putParam("code", code);
             url.putParam("message", "修改成功");
             return new RedirectPage(this, url.getUrl());
@@ -117,16 +117,16 @@ public class FrmMerchandise extends AbstractForm {
     public IPage delete() {
         UrlRecord url = new UrlRecord();
         String code = getRequest().getParameter("code");
-        LocalService svr = new LocalService(this, "SvrMerchandise.delete");
+        LocalService svr = new LocalService(this, "SvrPartInfo.delete");
         Record headIn2 = svr.getDataIn().getHead();
         headIn2.setField("code_", code);
         if (!svr.exec()) {
-            url.setSite("FrmMerchandise.modify");
+            url.setSite("FrmPartInfo.modify");
             url.putParam("code_", code);
             url.putParam("message", svr.getMessage());
             return new RedirectPage(this, url.getUrl());
         }
-        url.setSite("FrmMerchandise");
+        url.setSite("FrmPartInfo");
         url.putParam("message", "删除成功");
         return new RedirectPage(this, url.getUrl());
     }

@@ -7,7 +7,7 @@ import cn.cerc.jdb.mysql.SqlQuery;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class SvrMerchandise extends CustomService {
+public class SvrPartInfo extends CustomService {
 
     public boolean search() {
         Record headIn = getDataIn().getHead();
@@ -20,4 +20,5 @@ public class SvrMerchandise extends CustomService {
         log.info("商品信息 {}", getDataOut());
         return true;
     }
+
 }

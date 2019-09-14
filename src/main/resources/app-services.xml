@@ -20,7 +20,7 @@
         <property name="funcCode" value="delete"></property>
     </bean>
 
-    <bean id="SvrMerchandise.search" class="cn.cerc.example.service.SvrMerchandise" scope="prototype">
+    <bean id="SvrPartInfo.search" class="cn.cerc.example.service.SvrPartInfo" scope="prototype">
         <property name="funcCode" value="search"></property>
     </bean>
 </beans>
