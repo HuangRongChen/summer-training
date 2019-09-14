@@ -70,34 +70,6 @@ public class FrmPartInfo extends AbstractForm {
         return new RedirectPage(this, url.getUrl());
     }
 
-    public IPage append_old() {
-        JspPage jspPage = new JspPage(this, "common/FrmPartInfo_append.jsp");
-        String submit = getRequest().getParameter("submit");
-        if (submit == null || "".equals(submit)) {
-            return jspPage;
-        }
-
-        String code = getRequest().getParameter("code");
-        String name = getRequest().getParameter("name");
-        String price = getRequest().getParameter("price");
-        String number = getRequest().getParameter("number");
-
-        LocalService svr = new LocalService(this, "SvrPartInfo.append");
-        Record headIn = svr.getDataIn().getHead();
-        headIn.setField("code_", code);
-        headIn.setField("name_", name);
-        headIn.setField("price_", price);
-        headIn.setField("number_", number);
-        if (!svr.exec()) {
-            jspPage.setMessage(svr.getMessage());
-            return jspPage;
-        }
-
-        UrlRecord url = new UrlRecord();
-        url.setSite("FrmPartInfo");
-        url.putParam("message", "添加成功");
-        return new RedirectPage(this, url.getUrl());
-    }
 
     public IPage modify() {
         JspPage jspPage = new JspPage(this, "common/FrmPartInfo_modify.jsp");

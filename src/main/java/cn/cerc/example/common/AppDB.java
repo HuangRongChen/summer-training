@@ -9,4 +9,7 @@ public class AppDB {
     public static final String Table_User = "User";
 
     public static final String Table_PartInfo ="s_partinfo";
+
+    public static final String  CorpNo ="9264";
+
 }
