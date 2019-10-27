@@ -12,9 +12,16 @@ public class SvrPartInfo extends CustomService {
 
     public boolean search() {
         Record headIn = getDataIn().getHead();
+        String searchText = headIn.getString("searchText_");
 
         SqlQuery cdsTmp = new SqlQuery(this);
         cdsTmp.add("select * from %s", AppDB.Table_PartInfo);
+        if (searchText != null && !"".equals(searchText)) {
+            searchText = searchText.trim();
+            cdsTmp.add("where code_ like '%%%s%%'", searchText);
+            cdsTmp.add("or desc_ like '%%%s%%'", searchText);
+        }
+        log.info("{}", cdsTmp.getSqlText());
         cdsTmp.open();
 
         getDataOut().appendDataSet(cdsTmp);
