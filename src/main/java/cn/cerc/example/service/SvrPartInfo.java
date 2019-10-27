@@ -40,6 +40,7 @@ public class SvrPartInfo extends CustomService {
         String remark = headIn.getString("remark_");
 
         // 查询数据库是否存在当前商品
+
         SqlQuery cdsTmp = new SqlQuery(this);
         cdsTmp.add("select * from %s", AppDB.Table_PartInfo);
         cdsTmp.add("where corpNo_='%s'", AppDB.CorpNo);
